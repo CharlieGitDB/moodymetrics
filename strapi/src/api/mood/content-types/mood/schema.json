@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "moods",
+  "info": {
+    "singularName": "mood",
+    "pluralName": "moods",
+    "displayName": "Mood",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mood": {
+      "type": "enumeration",
+      "enum": [
+        "AMAZING",
+        "HAPPY",
+        "OK",
+        "SAD",
+        "HORRID"
+      ]
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

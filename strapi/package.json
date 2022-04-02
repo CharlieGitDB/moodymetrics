@@ -1,0 +1,32 @@
+{
+  "name": "moodymetrics",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A strapi instance for a mood tracking app",
+  "scripts": {
+    "develop": "strapi develop",
+    "develop:admin": "strapi develop --watch-admin",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/plugin-documentation": "^4.1.7",
+    "@strapi/plugin-i18n": "4.1.7",
+    "@strapi/plugin-users-permissions": "4.1.7",
+    "@strapi/strapi": "4.1.7",
+    "mysql": "2.18.1"
+  },
+  "author": {
+    "name": "Charlie A"
+  },
+  "strapi": {
+    "uuid": "47c61339-abcf-4431-95e9-4e865ae5771b"
+  },
+  "engines": {
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

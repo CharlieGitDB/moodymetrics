@@ -1,0 +1,22 @@
+'use strict';
+
+/**
+ * mood router.
+ */
+
+const { createCoreRouter } = require('@strapi/strapi').factories;
+
+module.exports = createCoreRouter('api::mood.mood', {
+  only: ['create', 'update', 'find', 'findOne', 'delete'],
+  config: {
+    findOne: {
+      policies: ['is-owner']
+    },
+    update: {
+      policies: ['is-owner']
+    },
+    delete: {
+      policies: ['is-owner']
+    }
+  }
+});
