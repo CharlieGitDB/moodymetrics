@@ -29,11 +29,15 @@ module.exports = createCoreController('api::mood.mood', ({ strapi }) => ({
   },
   async find(ctx) {
     const { user } = ctx.state;
-    return await strapi.entityService.findMany('api::mood.mood', {
+    const moods = await strapi.entityService.findMany('api::mood.mood', {
       filters: {
         owner: user.id
       }
     });
+
+    return {
+      data: moods
+    }
   }
 }));
 
