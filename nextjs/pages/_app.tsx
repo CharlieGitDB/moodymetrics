@@ -13,7 +13,7 @@ import createEmotionCache from '../util/createEmotionCache'
 const clientSideEmotionCache = createEmotionCache()
 
 interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
+  emotionCache?: EmotionCache
 }
 
 const MyApp = (props: MyAppProps) => {
