@@ -9,6 +9,7 @@ const Home: NextPage = () => (
     </Head>
     <main>
       <Button variant='contained'>Material Button</Button>
+      <Button variant='contained' color="secondary">Material Button</Button>
     </main>
   </>
 )
