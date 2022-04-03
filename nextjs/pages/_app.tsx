@@ -1,11 +1,11 @@
 import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
-import { AppBar, CssBaseline, Toolbar, Typography } from '@mui/material'
+import { CssBaseline } from '@mui/material'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useState } from 'react'
+import Header from '../components/Header/Header'
 import Themer from '../components/Themer/Themer'
-import ThemeSwitch from '../components/ThemeSwitch/ThemeSwitch'
 import '../styles/globals.css'
 import { ThemeMode } from '../types/ThemeMode'
 import createEmotionCache from '../util/createEmotionCache'
@@ -28,12 +28,7 @@ const MyApp = (props: MyAppProps) => {
       </Head>
 
       <Themer themeMode={themeMode}>
-        <AppBar position={'static'}>
-          <Toolbar>
-            <Typography variant={'h6'} component={'div'}>Moody Metrics</Typography>
-            <ThemeSwitch themeMode={themeMode} setThemeMode={setThemeMode} />
-          </Toolbar>
-        </AppBar>
+        <Header themeMode={themeMode} setThemeMode={setThemeMode} />
         <CssBaseline />
         <Component {...pageProps} />
       </Themer>
