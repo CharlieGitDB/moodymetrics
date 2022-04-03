@@ -1,4 +1,5 @@
 import { NightsStay, WbSunny } from '@mui/icons-material'
+import { Fade } from '@mui/material'
 import { ThemeMode } from '../../types/ThemeMode'
 
 type Props = {
@@ -12,7 +13,7 @@ const ThemeSwitch = ({ themeMode, setThemeMode }: Props) => {
   return (
     <>
       <span onClick={switchTheme} className="cursor-pointer">
-        {themeMode === 'dark' ? <WbSunny /> : <NightsStay />}
+        {themeMode === 'dark' ? <Fade in={true}><WbSunny /></Fade> : <NightsStay />}
       </span>
     </>
   )

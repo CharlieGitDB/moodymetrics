@@ -1,6 +1,6 @@
-import { AppBar, Toolbar, Typography } from "@mui/material"
-import { ThemeMode } from "../../types/ThemeMode"
-import ThemeSwitch from "../ThemeSwitch/ThemeSwitch"
+import { AppBar, Toolbar, Typography } from '@mui/material'
+import { ThemeMode } from '../../types/ThemeMode'
+import ThemeSwitch from '../ThemeSwitch/ThemeSwitch'
 
 type Props = {
   themeMode: string,
