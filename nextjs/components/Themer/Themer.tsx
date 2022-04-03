@@ -1,24 +1,16 @@
-import { Switch, ThemeProvider } from "@mui/material"
-import { useState } from "react"
+import { ThemeProvider } from "@mui/material"
 import darkTheme from "../../styles/theme/darkTheme"
 import lightTheme from "../../styles/theme/lightTheme"
 
-type ThemeMode = 'dark' | 'light'
 type Props = {
-  children: JSX.Element | JSX.Element[]
+  children: JSX.Element | JSX.Element[],
+  themeMode: string
 }
 
-const Themer = ({ children }: Props) => {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('light')
-
-  const switchTheme = () => setThemeMode(themeMode === 'dark' ? 'light' : 'dark')
-
-  return (
-    <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
-      {children}
-      <Switch checked={themeMode !== 'light'} onChange={switchTheme} />
-    </ThemeProvider>
-  )
-}
+const Themer = ({ children, themeMode }: Props) => (
+  <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+    {children}
+  </ThemeProvider>
+)
 
 export default Themer
