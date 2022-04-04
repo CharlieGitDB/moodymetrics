@@ -1,4 +1,6 @@
+import { withIronSessionApiRoute } from 'iron-session/next'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { sessionOptions } from '../../lib/session-options'
 import { externalLogin } from '../../services/external/_auth'
 import { ExternalResponse } from '../../types/external/ExternalResponse'
 
@@ -10,7 +12,9 @@ type ResponseData = {
   }
 }
 
-export default async function handler(
+export default withIronSessionApiRoute(handler, sessionOptions)
+
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
@@ -20,6 +24,10 @@ export default async function handler(
     
     if (loginResponse.jwt) {
       res.setHeader('Set-Cookie', `jwt=${loginResponse.jwt}; Path=/; HttpOnly`)
+      const { user } = loginResponse
+      req.session.user = user
+      await req.session.save()
+      
       res.status(200).json({
         success: true
       })

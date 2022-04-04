@@ -1,6 +1,7 @@
 import { Button } from '@mui/material'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 
 const Home: NextPage = () => (
   <>
@@ -10,6 +11,9 @@ const Home: NextPage = () => (
     <main>
       <Button variant='contained'>Material Button</Button>
       <Button variant='contained' color="secondary">Material Button</Button>
+      <Link href='/profile' passHref>
+        <Button variant='outlined'>Go to props</Button>
+      </Link>
     </main>
   </>
 )
