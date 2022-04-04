@@ -1,17 +1,14 @@
 import { AppBar, Toolbar, Typography } from '@mui/material'
-import { ThemeMode } from '../../types/ThemeMode'
+import Link from 'next/link'
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch'
 
-type Props = {
-  themeMode: string,
-  setThemeMode: (theme: ThemeMode) => void
-}
-
-const Header = ({ themeMode, setThemeMode }: Props) => (
+const Header = () => (
   <AppBar position={'static'}>
     <Toolbar>
-      <Typography variant={'h6'} component={'div'} sx={{ flexGrow: 1 }}>Moody Metrics</Typography>
-      <ThemeSwitch themeMode={themeMode} setThemeMode={setThemeMode} />
+      <Link href='/' passHref>
+        <Typography variant={'h6'} component={'div'} sx={{ flexGrow: 1 }} className={'cursor-pointer'}>Moody Metrics</Typography>
+      </Link>
+      <ThemeSwitch />
     </Toolbar>
   </AppBar>
 )

@@ -1,16 +1,21 @@
-import { ThemeProvider } from "@mui/material"
-import darkTheme from "../../styles/theme/darkTheme"
-import lightTheme from "../../styles/theme/lightTheme"
+import { ThemeProvider } from '@mui/material'
+import { useContext } from 'react'
+import { ThemeContext } from '../../lib/context/ThemeContext'
+import darkTheme from '../../styles/theme/darkTheme'
+import lightTheme from '../../styles/theme/lightTheme'
 
 type Props = {
-  children: JSX.Element | JSX.Element[],
-  themeMode: string
+  children: JSX.Element | JSX.Element[]
 }
 
-const Themer = ({ children, themeMode }: Props) => (
-  <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
-    {children}
-  </ThemeProvider>
-)
+const Themer = ({ children }: Props) => {
+  const { themeMode } = useContext(ThemeContext)
+  
+  return (
+    <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+      {children}
+    </ThemeProvider>
+  )
+}
 
 export default Themer

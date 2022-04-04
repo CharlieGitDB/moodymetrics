@@ -3,6 +3,7 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 import { withIronSessionSsr } from 'iron-session/next'
 import { InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
+import Header from '../components/Header/Header'
 import { sessionOptions } from '../lib/session-options'
 
 const Profile = ({ user }: InferGetServerSidePropsType<typeof getServerSideProps>) => (
@@ -11,6 +12,7 @@ const Profile = ({ user }: InferGetServerSidePropsType<typeof getServerSideProps
       <title>Moody Metrics - {user?.username} Profile</title>
     </Head>
     <main>
+      <Header />
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
